@@ -28,40 +28,7 @@
  * {@link UFHtml} implements methods for supporting html and the dom.
  */
 export class UFHtml {
-  // region private vars
-
-  /**
-   * Maps certain characters to their entity or special html tag or empty string if it has no use in html
-   */
-  static s_escapeHtmlMap: Map<string, string> = new Map([
-    ['&', '&amp;'],
-    ['<', '&lt;'],
-    ['>', '&gt;'],
-    ['"', '&quot;'],
-    ["'", '&#039;'],
-    ['\n', '<br/>'],
-    ['\t', ''],
-    ['\r', '']
-  ]);
-
-  // endregion
-
   // region public methods
-
-  /**
-   * Converts plain text to html by replacing certain characters with their entity equivalent and
-   * replacing \n with <br/> tags.
-   *
-   * Based on code from answer: https://stackoverflow.com/a/4835406/968451
-   *
-   * @param {string} aText
-   *   Text to convert
-   *
-   * @return {string} Html formatted plain text
-   */
-  static escapeHtml(aText: string): string {
-    return aText.replace(/[&<>"'\n\t\r]/g, character => this.s_escapeHtmlMap.get(character) as string);
-  }
 
   /**
    * Converts a html formatted text to a plain text.
